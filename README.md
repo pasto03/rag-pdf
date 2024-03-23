@@ -2,7 +2,7 @@
 A simple application that allows user to retrieve information from pdf.
 
 ## Usage
-In windows, simply clone the repository:
+Simply clone this repository:
 ```
 git clone https://github.com/pasto03/rag-pdf.git
 ```
