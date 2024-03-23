@@ -15,13 +15,12 @@ from utils import *
 
 
 class RAG:
-    def __init__(self, pdf_path, OPENAI_API_KEY, index_name, chunk_size=1024, **kwargs):
+    def __init__(self, pdf_path, OPENAI_API_KEY, chunk_size=1024, **kwargs):
         os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
         self.embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
 
         self.OPENAI_API_KEY = OPENAI_API_KEY
-        self.index_name = index_name
 
         # load and chunk pdf
         self.texts = load_pdf(pdf_path)
@@ -129,8 +128,7 @@ class RAG:
 
 if __name__ == "__main__":
     OPENAI_API_KEY = open('openai_api_key').read()
-    index_name = 'animals'
-    bot = RAG("./1707.06347.pdf", OPENAI_API_KEY, index_name)
+    bot = RAG("./1707.06347.pdf", OPENAI_API_KEY)
 
     # chat with bot with dialogue memory
     # chat_history, dialogue = bot.continuous_chat(max_tokens=512)
